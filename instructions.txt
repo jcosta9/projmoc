@@ -1,0 +1,4 @@
+activate moc  -- virtual env used
+django-admin startproject projmocambique -- creates a new projec
+python manage.py startapp patrimonio   -- starts app inside project
+manually create a folder inside project called template/projectname for .html files
