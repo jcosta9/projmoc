@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# from patrimonio.models import User
+from patrimonio.models import User
 from patrimonio.forms import NewUserForm
 # Create your views here.
 
 #first page
 def index(request):
-    return render(request,'patrimonio/index.html')
+    user_list = User.objects.order_by('first_name')
+    user_dict = {"users":user_list}
+    return render(request,'patrimonio/index.html',context=user_dict)
+    # return render(request,'patrimonio/index.html')
 
 def users(request):
 
