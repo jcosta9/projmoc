@@ -5,7 +5,7 @@ from patrimonio.models import User
 
 #first page
 def index(request):
-    return render(request,'apptwo/index.html')
+    return render(request,'patrimonio/index.html')
 
 def users(request):
 
