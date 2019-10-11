@@ -3,7 +3,12 @@ django-admin startproject projmocambique -- creates a new projec
 python manage.py startapp patrimonio   -- starts app inside project
 manually create a folder inside project called template/projectname for .html files
 
-when change models, to commit changes:
+#when change models, to commit changes:
 python manage.py migrate
 python manage.py makemigrations <app_name>
 python manage.py migrate
+
+#start server
+python manage.py runserver
+
+#create a super user
