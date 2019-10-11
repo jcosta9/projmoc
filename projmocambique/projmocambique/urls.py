@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from patrimonio import views  #link to index file in app
 
 urlpatterns = [
+    url(r'^$',views.index,name='index'),
+    url(r'^users/',include('patrimonio.urls')),
     path('admin/', admin.site.urls),
 ]
