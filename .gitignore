@@ -1,0 +1,3 @@
+*.pyc
+projmocambique\patrimonio\__pycache__\*
+projmocambique\db.sqlite3
