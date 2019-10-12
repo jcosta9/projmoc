@@ -9,8 +9,26 @@
     <div class="container">
       <div class="jumbotron">
         <h1>Welcome!</h1>
-        <h2><a href="{% url 'patrimonio:users' %}">sign up here!</a></h2>
-        <h2><a href="{% url 'patrimonio:userslist' %}">List of users</a></h2>
+
+        <h1>Here are your users:</h1>
+
+        {% if users%}
+
+        <ol>
+          {% for person in users %}
+          <li>User Info</li>
+            <ul>
+              <li>First Name: {{person.first_name}}</li>
+              <li>Last Name: {{person.last_name}}</li>
+              <li>Email: {{person.email}}</li>
+            </ul>
+            {% endfor %}
+        </ol>
+
+
+
+
+        {% endif %}
       </div>
     </div>
 

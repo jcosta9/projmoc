@@ -20,6 +20,6 @@ from patrimonio import views  #link to index file in app
 
 urlpatterns = [
     url(r'^$',views.index,name='index'),
-    url(r'^users/',include('patrimonio.urls')),
+    url(r'^patrimonio/',include('patrimonio.urls')), # concatenate links
     path('admin/', admin.site.urls),
 ]

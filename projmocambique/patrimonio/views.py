@@ -6,10 +6,12 @@ from patrimonio.forms import NewUserForm
 
 #first page
 def index(request):
+    return render(request,'patrimonio/index.html')
+
+def userslist(request):
     user_list = User.objects.order_by('first_name')
     user_dict = {"users":user_list}
-    return render(request,'patrimonio/index.html',context=user_dict)
-    # return render(request,'patrimonio/index.html')
+    return render(request,'patrimonio/userslist.html',context=user_dict)
 
 def users(request):
 
