@@ -8,4 +8,5 @@ app_name = 'patrimonio'
 urlpatterns = [
     url(r'^users/$',views.users,name='users'),
     url(r'^userslist/$',views.userslist,name='userslist'),
+    url(r'^register/$',views.register,name='register'),
 ]
