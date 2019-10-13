@@ -141,3 +141,5 @@ STATICFILES_DIRS = [STATIC_DIR]
 #media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = MEDIA_DIR
+
+LOGIN_URL = '/patrimonio/user_login'

@@ -1,10 +1,10 @@
-{% extends 'basic_app/base.html' %}
+{% extends 'patrimonio/base.html' %}
 {% block body_block %}
   <div class="container">
     <div class="jumbotron">
       <h1>Please Login</h1>
 
-        <form method="post" action="{% url 'basic_app:user_login' %}">
+        <form method="post" action="{% url 'patrimonio:user_login' %}">
           {% csrf_token %}
           {# A more "HTML" way of creating the login form#}
           <label for="username">Username:</label>
