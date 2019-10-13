@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext as _
+from django.url import reverse
 
 ESTADO_NOVO = 1
 ESTADO_USADO = 2
@@ -97,9 +98,14 @@ class BemMovel(models.Model):
     )
     garantia = models.CharField(max_length=256)
     utilizador = models.CharField(max_length=256)
-    observacoes = models.CharField(max_length=2048)
+    observacoes = models.TextField()
     preenchidoPor = models.CharField(max_length=256)
     responsavel = models.CharField(max_length=256)
+
+
+    # TODO: create methods for each
+    def get_absolute_url(self):
+        return reverse("bem_detalhado",kwargs={'pk':self.numOrdem})
 
 # class MyForm(forms.ModelForm):
 #     prioritylevel = forms.ModelChoiceField(queryset=OtherModel.objects.values('level'))
