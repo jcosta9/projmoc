@@ -44,7 +44,7 @@ class Sector(models.Model):
     bairro = models.CharField(max_length=256)
     endereco = models.CharField(max_length=256)
 
-class Aquisicao(models.Model):
+class TipoAquisicao(models.Model):
     cod = models.DecimalField(max_digits=10, decimal_places=0, primary_key=True)
     forma = models.CharField(max_length=256)
 
@@ -76,7 +76,7 @@ class BemMovel(models.Model):
     cor = models.CharField(max_length=256)
     materialPredominante = models.CharField(max_length=256)
 
-    models.ForeignKey('Aquisicao',on_delete=models.CASCADE,)
+    tipoAquisicao = models.ForeignKey('TipoAquisicao',on_delete=models.CASCADE,)
 
     estadoBem = models.PositiveSmallIntegerField(
         choices=ESTADOS_BEM,
