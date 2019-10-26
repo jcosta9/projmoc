@@ -46,7 +46,34 @@ class BemForm(forms.ModelForm):
 
     class Meta:
         model = Bem
-        fields = ('nome','marca', 'valor','uge','ugb', 'sector','tipoAquisicao', 'fornecedor')
+        fields = ('numOrdem',
+                'nome',
+                'uge',
+                'ugb',
+                'sector',
+                'codClassificacaoGeral',
+                'designacao',
+                'marca',
+                'numeroSerie',
+                'NIP',
+                'comprimento',
+                'largura',
+                'altura',
+                'cor',
+                'materialPredominante',
+                'estadoBem',
+                'tipoAquisicao',
+                'dataAquisicao',
+                'valor',
+                'fornecedor',
+                'tipoComprovativo',
+                'nroComprovativo',
+                'assistenciaTecnica',
+                'garantia',
+                'utilizador',
+                'observacoes',
+                'preenchidoPor',
+                'responsavel') 
 
 # Caso queira mudar o CSS da classe de algum campo específico do formulário.
         # widgets = {
