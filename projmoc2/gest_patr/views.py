@@ -23,3 +23,22 @@ class BemListView(ListView):
 
 class BemDetailView(DetailView):
     model = Bem
+
+class CreateBemView(LoginRequiredMixin,CreateView):
+    login_url = '/login/'
+    redirect_field_name = 'blog/Bem_detail.html'
+
+    form_class = BemForm
+    model = Bem
+
+class BemUpdateView(LoginRequiredMixin,UpdateView):
+    login_url = '/login/'
+    redirect_field_name = 'blog/Bem_detail.html'
+
+    form_class = BemForm
+
+    model = Bem
+
+class BemDeleteView(LoginRequiredMixin,DeleteView):
+    model = Bem
+    success_url = reverse_lazy('Bem_lista')
