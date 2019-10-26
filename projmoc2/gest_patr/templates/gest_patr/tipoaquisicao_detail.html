@@ -1,0 +1,16 @@
+ {% extends 'gest_patr/base.html' %}
+
+{% block content %}
+
+
+        <h1 class='posttitle loader'>{{ tipoaquisicao.tipo }}</h1>
+          <a class="btn btn-primary" href="{% url 'gest_patr:tipoaquisicao_alterar' pk=tipoaquisicao.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a class="btn btn-primary" href="{% url 'gest_patr:tipoaquisicao_remover' pk=tipoaquisicao.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+  <hr>
+
+  <div class="container">
+      <p><strong>Código:<strong> {{ tipoaquisicao.cod }}</p>
+      <p><strong>Tipo de Aquisição:<strong> {{ tipoaquisicao.tipo }}</p>
+</div>
+
+{% endblock %}

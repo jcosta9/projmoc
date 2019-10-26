@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 # from django.contrib.auth.decorators import login_required
-from .models import Bem, Uge, Ugb, Sector
+from .models import Bem, Uge, Ugb, Sector, TipoAquisicao
 from django.utils import timezone
-from .forms import BemForm, UgeForm, UgbForm, SectorForm
+from .forms import BemForm, UgeForm, UgbForm, SectorForm, TipoAquisicaoForm
 
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
@@ -140,3 +140,35 @@ class SectorUpdateView(UpdateView):
 class SectorDeleteView(DeleteView):
     model = Sector
     success_url = reverse_lazy('gest_patr:sector_lista')
+
+##########################################################
+##  Tipo de Aquisicao
+##########################################################
+
+class TipoAquisicaoListView(ListView):
+    model = TipoAquisicao
+
+    def get_queryset(self):
+        return TipoAquisicao.objects.order_by('cod')
+
+class TipoAquisicaoDetailView(DetailView):
+    model = TipoAquisicao
+
+class CreateTipoAquisicaoView(CreateView):
+    # login_url = '/login/'
+    redirect_field_name = 'tipoaquisicao_detalhe.html'
+
+    form_class = TipoAquisicaoForm
+    model = TipoAquisicao
+
+class TipoAquisicaoUpdateView(UpdateView):
+    # login_url = '/login/'
+    redirect_field_name = 'tipoaquisicao_detalhe.html'
+
+    form_class = TipoAquisicaoForm
+
+    model = TipoAquisicao
+
+class TipoAquisicaoDeleteView(DeleteView):
+    model = TipoAquisicao
+    success_url = reverse_lazy('gest_patr:tipoaquisicao_lista')
