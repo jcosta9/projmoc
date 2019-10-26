@@ -12,6 +12,8 @@ from django.urls import reverse_lazy
 # from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
+class AboutView(TemplateView):
+    template_name = 'about.html'
 
 class BemListView(ListView):
     model = Bem
@@ -24,14 +26,14 @@ class BemDetailView(DetailView):
 
 class CreateBemView(CreateView):
     # login_url = '/login/'
-    redirect_field_name = 'bem/bem_detalhe.html'
+    redirect_field_name = 'bem_detalhe.html'
 
     form_class = BemForm
     model = Bem
 
 class BemUpdateView(UpdateView):
     # login_url = '/login/'
-    redirect_field_name = 'bem/bem_detalhe.html'
+    redirect_field_name = 'bem_detalhe.html'
 
     form_class = BemForm
 
