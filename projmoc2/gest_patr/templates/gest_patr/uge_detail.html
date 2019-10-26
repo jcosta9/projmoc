@@ -1,0 +1,16 @@
+ {% extends 'gest_patr/base.html' %}
+
+{% block content %}
+
+
+        <h1 class='posttitle loader'>{{ Uge.designacoes }}</h1>
+          <a class="btn btn-primary" href="{% url 'gest_patr:uge_alterar' pk=uge.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a class="btn btn-primary" href="{% url 'gest_patr:uge_remover' pk=uge.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+  <hr>
+
+  <div class="container">
+      <p><strong>Código:<strong> {{ uge.cod }}</p>
+      <p><strong>Designações:<strong> {{ uge.designacoes }}</p>
+</div>
+
+{% endblock %}

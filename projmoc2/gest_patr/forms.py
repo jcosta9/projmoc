@@ -1,7 +1,12 @@
 from django import forms
 
-from .models import Bem
+from .models import Bem, Uge
 
+class UgeForm(forms.ModelForm):
+
+    class Meta:
+        model = Uge
+        fields = ('cod','designacoes')
 
 class BemForm(forms.ModelForm):
 

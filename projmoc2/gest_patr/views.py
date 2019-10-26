@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 # from django.contrib.auth.decorators import login_required
-from .models import Bem
+from .models import Bem, Uge
 from django.utils import timezone
-from .forms import BemForm
+from .forms import BemForm, UgeForm
 
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
@@ -42,3 +42,36 @@ class BemUpdateView(UpdateView):
 class BemDeleteView(DeleteView):
     model = Bem
     success_url = reverse_lazy('gest_patr:bens_lista')
+
+
+##########################################################
+##  Uge
+##########################################################
+
+class UgeListView(ListView):
+    model = Uge
+
+    def get_queryset(self):
+        return Uge.objects.filter(cod__lte=timezone.now()).order_by('cod')
+
+class UgeDetailView(DetailView):
+    model = Uge
+
+class CreateUgeView(CreateView):
+    # login_url = '/login/'
+    redirect_field_name = 'uge_detalhe.html'
+
+    form_class = UgeForm
+    model = Uge
+
+class UgeUpdateView(UpdateView):
+    # login_url = '/login/'
+    redirect_field_name = 'uge_detalhe.html'
+
+    form_class = UgeForm
+
+    model = Uge
+
+class UgeDeleteView(DeleteView):
+    model = Uge
+    success_url = reverse_lazy('gest_patr:uge_lista')
