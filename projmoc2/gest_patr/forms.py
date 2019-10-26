@@ -12,7 +12,7 @@ class BemForm(forms.ModelForm):
 
     class Meta:
         model = Bem
-        fields = ('nome','marca', 'valor',)
+        fields = ('nome','marca', 'valor','uge')
 
 # Caso queira mudar o CSS da classe de algum campo específico do formulário.
         # widgets = {

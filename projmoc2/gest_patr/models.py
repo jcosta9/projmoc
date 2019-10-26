@@ -19,6 +19,7 @@ class Bem(models.Model):
     dataPreenchimento = models.DateField(default=timezone.now)
     marca = models.CharField(max_length=256)
     valor = models.IntegerField()
+    uge = models.ForeignKey('Uge', on_delete=models.CASCADE, default='21010000')
     # preenchidoPor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 
     def get_absolute_url(self):
