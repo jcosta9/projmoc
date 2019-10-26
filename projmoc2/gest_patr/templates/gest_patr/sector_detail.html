@@ -1,0 +1,23 @@
+ {% extends 'gest_patr/base.html' %}
+
+{% block content %}
+
+
+        <h1 class='posttitle loader'>{{ sector.nome }}</h1>
+          <a class="btn btn-primary" href="{% url 'gest_patr:sector_alterar' pk=sector.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a class="btn btn-primary" href="{% url 'gest_patr:sector_remover' pk=sector.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+  <hr>
+
+  <div class="container">
+      <p><strong>Código:<strong> {{ sector.cod }}</p>
+      <p><strong>UGB:<strong> {{ sector.ugb }}</p>
+      <p><strong>Província:<strong> {{ sector.provincia }}</p>
+      <p><strong>Distrito:<strong> {{ sector.distrito }}</p>
+      <p><strong>Posto Administrativo/Administração da DCU/Municipal:<strong> {{ sector.postAdmin }}</p>
+      <p><strong>Localidade:<strong> {{ sector.localidade }}</p>
+      <p><strong>classificador Territorial:<strong> {{ sector.classificadorTerr }}</p>
+      <p><strong>Bairro:<strong> {{ sector.bairro }}</p>
+      <p><strong>Endereço:<strong> {{ sector.endereco }}</p>
+</div>
+
+{% endblock %}

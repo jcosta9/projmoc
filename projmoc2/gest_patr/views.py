@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 # from django.contrib.auth.decorators import login_required
-from .models import Bem, Uge, Ugb
+from .models import Bem, Uge, Ugb, Sector
 from django.utils import timezone
-from .forms import BemForm, UgeForm, UgbForm
+from .forms import BemForm, UgeForm, UgbForm, SectorForm
 
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
@@ -107,3 +107,36 @@ class UgbUpdateView(UpdateView):
 class UgbDeleteView(DeleteView):
     model = Ugb
     success_url = reverse_lazy('gest_patr:ugb_lista')
+
+
+##########################################################
+##  Sector
+##########################################################
+
+class SectorListView(ListView):
+    model = Sector
+
+    def get_queryset(self):
+        return Sector.objects.order_by('cod')
+
+class SectorDetailView(DetailView):
+    model = Sector
+
+class CreateSectorView(CreateView):
+    # login_url = '/login/'
+    redirect_field_name = 'sector_detalhe.html'
+
+    form_class = SectorForm
+    model = Sector
+
+class SectorUpdateView(UpdateView):
+    # login_url = '/login/'
+    redirect_field_name = 'sector_detalhe.html'
+
+    form_class = SectorForm
+
+    model = Sector
+
+class SectorDeleteView(DeleteView):
+    model = Sector
+    success_url = reverse_lazy('gest_patr:sector_lista')
