@@ -14,6 +14,16 @@ class Uge(models.Model):
     def __str__(self):
         return self.designacoes
 
+class Ugb(models.Model):
+    cod = models.DecimalField(max_digits=8, decimal_places=0, primary_key=True)
+    designacoes = models.CharField(max_length=256)
+
+    def get_absolute_url(self):
+        return reverse("gest_patr:ugb_detalhe",kwargs={'pk':self.pk})
+
+    def __str__(self):
+        return self.designacoes
+
 class Bem(models.Model):
     nome = models.CharField(max_length=200)
     dataPreenchimento = models.DateField(default=timezone.now)

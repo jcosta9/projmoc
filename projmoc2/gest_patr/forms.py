@@ -1,11 +1,17 @@
 from django import forms
 
-from .models import Bem, Uge
+from .models import Bem, Uge, Ugb
 
 class UgeForm(forms.ModelForm):
 
     class Meta:
         model = Uge
+        fields = ('cod','designacoes')
+
+class UgbForm(forms.ModelForm):
+
+    class Meta:
+        model = Ugb
         fields = ('cod','designacoes')
 
 class BemForm(forms.ModelForm):

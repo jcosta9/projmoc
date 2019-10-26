@@ -5,6 +5,7 @@ app_name = 'gest_partr'
 
 urlpatterns = [
     url(r'^$',views.AboutView.as_view(),name='about'),
+    
     url(r'^bem/lista/$',views.BemListView.as_view(),name='bens_lista'),
     url(r'^bem/(?P<pk>\d+)$', views.BemDetailView.as_view(), name='bem_detalhe'),
     url(r'^bem/new/$', views.CreateBemView.as_view(), name='bem_novo'),
@@ -16,4 +17,10 @@ urlpatterns = [
     url(r'^uge/new/$', views.CreateUgeView.as_view(), name='uge_novo'),
     url(r'^uge/(?P<pk>\d+)/editar/$', views.UgeUpdateView.as_view(), name='uge_alterar'),
     url(r'^uge/(?P<pk>\d+)/remover/$', views.UgeDeleteView.as_view(), name='uge_remover'),
+
+    url(r'^ugb/lista/$',views.UgbListView.as_view(),name='ugb_lista'),
+    url(r'^ugb/(?P<pk>\d+)$', views.UgbDetailView.as_view(), name='ugb_detalhe'),
+    url(r'^ugb/new/$', views.CreateUgbView.as_view(), name='ugb_novo'),
+    url(r'^ugb/(?P<pk>\d+)/editar/$', views.UgbUpdateView.as_view(), name='ugb_alterar'),
+    url(r'^ugb/(?P<pk>\d+)/remover/$', views.UgbDeleteView.as_view(), name='ugb_remover'),
 ]
