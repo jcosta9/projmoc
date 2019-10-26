@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.decorators import login_required
 from .models import Bem
 from django.utils import timezone
 from .forms import BemForm
@@ -9,7 +9,7 @@ from django.views.generic import (TemplateView,ListView,
                                   UpdateView,DeleteView)
 
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
+# from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 class AboutView(TemplateView):
@@ -24,21 +24,21 @@ class BemListView(ListView):
 class BemDetailView(DetailView):
     model = Bem
 
-class CreateBemView(LoginRequiredMixin,CreateView):
-    login_url = '/login/'
-    redirect_field_name = 'blog/Bem_detail.html'
+class CreateBemView(CreateView):
+    # login_url = '/login/'
+    redirect_field_name = 'bem/bem_detalhe.html'
 
     form_class = BemForm
     model = Bem
 
-class BemUpdateView(LoginRequiredMixin,UpdateView):
-    login_url = '/login/'
-    redirect_field_name = 'blog/Bem_detail.html'
+class BemUpdateView(UpdateView):
+    # login_url = '/login/'
+    redirect_field_name = 'bem/bem_detalhe.html'
 
     form_class = BemForm
 
     model = Bem
 
-class BemDeleteView(LoginRequiredMixin,DeleteView):
+class BemDeleteView(DeleteView):
     model = Bem
-    success_url = reverse_lazy('Bem_lista')
+    success_url = reverse_lazy('gest_patr:bens_lista')

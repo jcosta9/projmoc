@@ -33,26 +33,14 @@
 
       <ul class="nav navbar-nav">
         <!-- Provavelmente vou mudar essa linha pois ela deve levar para a primeira pag do site, nao do módulo -->
-        <li><a class='navbar-brand bigbrand' href="{% url 'bem_lista' %}">Lista de Bens</a></li>
-        <li><a href="{% url 'about'%}">About</a></li>
+        <li><a class='navbar-brand bigbrand' href="{% url 'gest_patr:bens_lista' %}">Lista de Bens</a></li>
+        <li><a href="{% url 'gest_patr:about'%}">About</a></li>
       </ul>
 
         <ul class="nav navbar-nav navbar-right">
-        <!-- {% if user.is_authenticated %} -->
         <li>
-          <a href="{% url 'bem_novo' %}" >Novo Bem</a>
+          <a href="{% url 'gest_patr:bem_novo' %}" >Novo Bem</a>
         </li>
-        <!-- <li>
-          <a href="{% url 'logout' %}" >Log out</a>
-        </li> -->
-
-        <!-- <li>
-          <a >Welcome: {{ user.username }}</a>
-        </li> -->
-          <!-- {% else %} -->
-          <!-- <li><a class='nav navbar-right' href="{% url 'login' %}" ><span class="glyphicon glyphicon-user"></span></a></li> -->
-        <!-- {% endif %} -->
-
       </ul>
     </div>
   </nav>

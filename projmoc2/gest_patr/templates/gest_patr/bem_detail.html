@@ -1,4 +1,4 @@
-{% extends 'bem/base.html' %}
+{% extends 'gest_patr/base.html' %}
 
 {% block content %}
 
@@ -14,10 +14,8 @@
 
 
 
-      <!-- {% if user.is_authenticated %} -->
-          <a class="btn btn-primary" href="{% url 'bem_alterar' pk=bem.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-          <a class="btn btn-primary" href="{% url 'bem_remover' pk=bem.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-      <!-- {% endif %} -->
+          <a class="btn btn-primary" href="{% url 'gest_patr:bem_alterar' pk=bem.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a class="btn btn-primary" href="{% url 'gest_patr:bem_remover' pk=bem.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
 
 
 
