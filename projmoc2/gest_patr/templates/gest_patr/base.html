@@ -31,7 +31,7 @@
     <div class="container">
 
 
-      <ul class="nav navbar-nav">
+      <ul class="nav">
         <!-- Provavelmente vou mudar essa linha pois ela deve levar para a primeira pag do site, nao do módulo -->
         <li><a class='navbar-brand bigbrand' href="{% url 'gest_patr:bens_lista' %}">Lista de Bens</a></li>
         <li><a href="{% url 'gest_patr:bem_novo' %}" >Novo Bem</a></li>
@@ -39,6 +39,7 @@
         <li><a href="{% url 'gest_patr:ugb_novo' %}" >Nova Ugb</a></li>
         <li><a href="{% url 'gest_patr:sector_novo' %}" >Novo Sector</a></li>
         <li><a href="{% url 'gest_patr:tipoaquisicao_novo' %}" >Novo Tipo de Aquisicao</a></li>
+        <li><a href="{% url 'gest_patr:fornecedor_novo' %}" >Novo Fornecedor</a></li>
       </ul>
     </div>
   </nav>

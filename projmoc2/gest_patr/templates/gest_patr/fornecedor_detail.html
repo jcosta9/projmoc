@@ -1,0 +1,18 @@
+ {% extends 'gest_patr/base.html' %}
+
+{% block content %}
+
+
+        <h1 class='posttitle loader'>{{ fornecedor.designacoes }}</h1>
+          <a class="btn btn-primary" href="{% url 'gest_patr:fornecedor_alterar' pk=fornecedor.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a class="btn btn-primary" href="{% url 'gest_patr:fornecedor_remover' pk=fornecedor.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+  <hr>
+
+  <div class="container">
+      <p><strong>Nome:<strong> {{ fornecedor.nome }}</p>
+      <p><strong>NUIT:<strong> {{ fornecedor.nuit }}</p>
+      <p><strong>Endereco:<strong> {{ fornecedor.enderecoFornecedor }}</p>
+      <p><strong>Cidade:<strong> {{ fornecedor.cidade }}</p>
+</div>
+
+{% endblock %}

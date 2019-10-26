@@ -1,0 +1,15 @@
+{% extends 'gest_patr/base.html' %}
+
+{% block content %}
+<div class="centerstage">
+    {% for uge in uge_list %}
+        <div class="bem">
+
+            <h1><a href="{% url 'gest_patr:sector_detalhe' pk=uge.pk %}">{{ uge.designacao }}</a></h1>
+            <div class="date">
+                <p>Designação: {{ uge.designacao }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

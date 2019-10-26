@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 # from django.contrib.auth.decorators import login_required
-from .models import Bem, Uge, Ugb, Sector, TipoAquisicao
+from .models import Bem, Uge, Ugb, Sector, TipoAquisicao, Fornecedor
 from django.utils import timezone
-from .forms import BemForm, UgeForm, UgbForm, SectorForm, TipoAquisicaoForm
+from .forms import BemForm, UgeForm, UgbForm, SectorForm, TipoAquisicaoForm, FornecedorForm
 
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
@@ -172,3 +172,35 @@ class TipoAquisicaoUpdateView(UpdateView):
 class TipoAquisicaoDeleteView(DeleteView):
     model = TipoAquisicao
     success_url = reverse_lazy('gest_patr:tipoaquisicao_lista')
+
+##########################################################
+##  Fornecedor
+##########################################################
+
+class FornecedorListView(ListView):
+    model = Fornecedor
+
+    def get_queryset(self):
+        return Fornecedor.objects.order_by('cod')
+
+class FornecedorDetailView(DetailView):
+    model = Fornecedor
+
+class CreateFornecedorView(CreateView):
+    # login_url = '/login/'
+    redirect_field_name = 'fornecedor_detalhe.html'
+
+    form_class = FornecedorForm
+    model = Fornecedor
+
+class FornecedorUpdateView(UpdateView):
+    # login_url = '/login/'
+    redirect_field_name = 'fornecedor_detalhe.html'
+
+    form_class = FornecedorForm
+
+    model = Fornecedor
+
+class FornecedorDeleteView(DeleteView):
+    model = Fornecedor
+    success_url = reverse_lazy('gest_patr:fornecedor_lista')

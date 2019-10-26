@@ -35,4 +35,10 @@ urlpatterns = [
     url(r'^tipoaquisicao/new/$', views.CreateTipoAquisicaoView.as_view(), name='tipoaquisicao_novo'),
     url(r'^tipoaquisicao/(?P<pk>\d+)/editar/$', views.TipoAquisicaoUpdateView.as_view(), name='tipoaquisicao_alterar'),
     url(r'^tipoaquisicao/(?P<pk>\d+)/remover/$', views.TipoAquisicaoDeleteView.as_view(), name='tipoaquisicao_remover'),
+
+    url(r'^fornecedor/lista/$',views.FornecedorListView.as_view(),name='fornecedor_lista'),
+    url(r'^fornecedor/(?P<pk>\d+)$', views.FornecedorDetailView.as_view(), name='fornecedor_detalhe'),
+    url(r'^fornecedor/new/$', views.CreateFornecedorView.as_view(), name='fornecedor_novo'),
+    url(r'^fornecedor/(?P<pk>\d+)/editar/$', views.FornecedorUpdateView.as_view(), name='fornecedor_alterar'),
+    url(r'^fornecedor/(?P<pk>\d+)/remover/$', views.FornecedorDeleteView.as_view(), name='fornecedor_remover'),
 ]

@@ -52,6 +52,18 @@ class TipoAquisicao(models.Model):
     def __str__(self):
         return self.tipo
 
+class Fornecedor(models.Model):
+    nome = models.CharField(max_length=256)
+    nuit = models.DecimalField(max_digits=12, decimal_places=0)
+    enderecoFornecedor = models.CharField(max_length=256)
+    cidade = models.CharField(max_length=256)
+
+    def get_absolute_url(self):
+        return reverse("gest_patr:fornecedor_detalhe",kwargs={'pk':self.pk})
+
+    def __str__(self):
+        return self.nome
+
 class Bem(models.Model):
     nome = models.CharField(max_length=200)
     dataPreenchimento = models.DateField(default=timezone.now)
@@ -61,6 +73,7 @@ class Bem(models.Model):
     ugb = models.ForeignKey('Ugb', on_delete=models.CASCADE, default='21030000')
     sector = models.ForeignKey('Sector', on_delete=models.CASCADE, default='001')
     tipoAquisicao = models.ForeignKey('TipoAquisicao', on_delete=models.CASCADE, default='001')
+    fornecedor = models.ForeignKey('Fornecedor', on_delete=models.CASCADE, null=True)
     # preenchidoPor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 
     def get_absolute_url(self):
