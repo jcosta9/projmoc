@@ -25,14 +25,14 @@ class BemDetailView(DetailView):
     model = Bem
 
 class CreateBemView(CreateView):
-    # login_url = '/login/'
+    login_url = '/login/'
     redirect_field_name = 'bem_detalhe.html'
 
     form_class = BemForm
     model = Bem
 
 class BemUpdateView(UpdateView):
-    # login_url = '/login/'
+    login_url = '/login/'
     redirect_field_name = 'bem_detalhe.html'
 
     form_class = BemForm
@@ -58,14 +58,14 @@ class UgeDetailView(DetailView):
     model = Uge
 
 class CreateUgeView(CreateView):
-    # login_url = '/login/'
+    login_url = '/login/'
     redirect_field_name = 'uge_detalhe.html'
 
     form_class = UgeForm
     model = Uge
 
 class UgeUpdateView(UpdateView):
-    # login_url = '/login/'
+    login_url = '/login/'
     redirect_field_name = 'uge_detalhe.html'
 
     form_class = UgeForm
@@ -90,14 +90,14 @@ class UgbDetailView(DetailView):
     model = Ugb
 
 class CreateUgbView(CreateView):
-    # login_url = '/login/'
+    login_url = '/login/'
     redirect_field_name = 'ugb_detalhe.html'
 
     form_class = UgbForm
     model = Ugb
 
 class UgbUpdateView(UpdateView):
-    # login_url = '/login/'
+    login_url = '/login/'
     redirect_field_name = 'ugb_detalhe.html'
 
     form_class = UgbForm
@@ -123,14 +123,14 @@ class SectorDetailView(DetailView):
     model = Sector
 
 class CreateSectorView(CreateView):
-    # login_url = '/login/'
+    login_url = '/login/'
     redirect_field_name = 'sector_detalhe.html'
 
     form_class = SectorForm
     model = Sector
 
 class SectorUpdateView(UpdateView):
-    # login_url = '/login/'
+    login_url = '/login/'
     redirect_field_name = 'sector_detalhe.html'
 
     form_class = SectorForm
@@ -155,14 +155,14 @@ class TipoAquisicaoDetailView(DetailView):
     model = TipoAquisicao
 
 class CreateTipoAquisicaoView(CreateView):
-    # login_url = '/login/'
+    login_url = '/login/'
     redirect_field_name = 'tipoaquisicao_detalhe.html'
 
     form_class = TipoAquisicaoForm
     model = TipoAquisicao
 
 class TipoAquisicaoUpdateView(UpdateView):
-    # login_url = '/login/'
+    login_url = '/login/'
     redirect_field_name = 'tipoaquisicao_detalhe.html'
 
     form_class = TipoAquisicaoForm
@@ -187,14 +187,14 @@ class FornecedorDetailView(DetailView):
     model = Fornecedor
 
 class CreateFornecedorView(CreateView):
-    # login_url = '/login/'
+    login_url = '/login/'
     redirect_field_name = 'fornecedor_detalhe.html'
 
     form_class = FornecedorForm
     model = Fornecedor
 
 class FornecedorUpdateView(UpdateView):
-    # login_url = '/login/'
+    login_url = '/login/'
     redirect_field_name = 'fornecedor_detalhe.html'
 
     form_class = FornecedorForm
