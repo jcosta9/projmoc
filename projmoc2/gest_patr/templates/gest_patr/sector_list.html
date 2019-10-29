@@ -9,7 +9,7 @@
     {% for sector in sector_list %}
         <div>
 
-            <h1><a href="{% url 'gest_patr:sector_detalhe' pk=bem.pk %}">{{ sector.nome }}</a></h1>
+            <h1><a href="{% url 'gest_patr:sector_detalhe' pk=sector.pk %}">{{ sector.nome }}</a></h1>
             <div class="date">
                 <p>Código: {{ sector.cod}}</p>
             </div>
