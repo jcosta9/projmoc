@@ -1,13 +1,17 @@
 {% extends 'gest_patr/base.html' %}
 
 {% block content %}
+<h1>Lista de UGEs
+<button type="button" class="btn btn-success topright" onclick="location.href = '{% url 'gest_patr:uge_novo' %}';">Nova UGE</button>
+</h1>
+<br><br>
 <div class="centerstage">
     {% for uge in uge_list %}
-        <div class="bem">
+        <div>
 
-            <h1><a href="{% url 'gest_patr:sector_detalhe' pk=uge.pk %}">{{ uge.designacao }}</a></h1>
-            <div class="date">
-                <p>Designação: {{ uge.designacao }}</p>
+            <h1><a href="{% url 'gest_patr:uge_detalhe' pk=uge.pk %}">{{ uge.cod }}</a></h1>
+            <div >
+                <p>Designações: {{ uge.designacoes }}</p>
             </div>
         </div>
     {% endfor %}

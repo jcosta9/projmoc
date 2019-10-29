@@ -1,6 +1,10 @@
 {% extends 'gest_patr/base.html' %}
 
 {% block content %}
+<h1>Lista de Fornecedores
+<button type="button" class="btn btn-success topright" onclick="location.href = '{% url 'gest_patr:fornecedor_novo' %}';">Novo Fornecedor</button>
+</h1>
+<br><br>
 <div class="centerstage">
     {% for uge in uge_list %}
         <div class="bem">

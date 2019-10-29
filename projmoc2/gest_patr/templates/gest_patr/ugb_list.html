@@ -1,6 +1,10 @@
 {% extends 'gest_patr/base.html' %}
 
 {% block content %}
+<h1>Lista de UGBs
+<button type="button" class="btn btn-success topright" onclick="location.href = '{% url 'gest_patr:ugb_novo' %}';">Nova UGB</button>
+</h1>
+<br><br>
 <div class="centerstage">
     {% for ugb in ugb_list %}
         <div>
