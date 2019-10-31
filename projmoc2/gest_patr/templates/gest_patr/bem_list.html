@@ -6,14 +6,28 @@
 </h1>
 <br><br>
 <div class="centerstage">
-    {% for bem in bem_list %}
-        <div class="bem">
-
-            <h1><a href="{% url 'gest_patr:bem_detalhe' pk=bem.pk %}">{{ bem.nome }}</a></h1>
-            <div class="date">
-                <p>Criado em: {{ bem.dataPreenchimento|date:"D M Y"}}</p>
-            </div>
-        </div>
-    {% endfor %}
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Data de Preenchimento</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for bem in bem_list %}
+        <tr>
+          <td><a href="{% url 'gest_patr:bem_detalhe' pk=bem.pk %}">{{ bem.nome }}</a></td>
+          <td>{{ bem.dataPreenchimento|date:"D M Y"}}</td>
+          <td>
+            <a class="btn btn-primary btn-xm" href="{% url 'gest_patr:bem_remover' pk=bem.pk %}">Alterar</a>
+            <a class="btn btn-primary btn-xm" href="{% url 'gest_patr:bem_alterar' pk=bem.pk %}">Remover</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 {% endblock %}

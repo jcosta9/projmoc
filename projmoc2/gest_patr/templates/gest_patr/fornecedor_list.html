@@ -6,14 +6,28 @@
 </h1>
 <br><br>
 <div class="centerstage">
-    {% for uge in uge_list %}
-        <div class="bem">
-
-            <h1><a href="{% url 'gest_patr:sector_detalhe' pk=uge.pk %}">{{ uge.designacao }}</a></h1>
-            <div class="date">
-                <p>Designação: {{ uge.designacao }}</p>
-            </div>
-        </div>
-    {% endfor %}
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>NUIT</th>
+          <th>Fornecedor</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for fornecedor in fornecedor_list %}
+        <tr>
+          <td><a href="{% url 'gest_patr:fornecedor_detalhe' pk=fornecedor.pk %}">{{ fornecedor.nuit }}</a></td>
+          <td>{{ fornecedor.nome }}</td>
+          <td>
+            <a class="btn btn-primary" href="{% url 'gest_patr:fornecedor_alterar' pk=fornecedor.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-primary" href="{% url 'gest_patr:fornecedor_remover' pk=fornecedor.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 {% endblock %}

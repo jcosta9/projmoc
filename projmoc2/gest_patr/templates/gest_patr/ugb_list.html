@@ -6,14 +6,28 @@
 </h1>
 <br><br>
 <div class="centerstage">
-    {% for ugb in ugb_list %}
-        <div>
-
-            <h1><a href="{% url 'gest_patr:ugb_detalhe' pk=ugb.pk %}">{{ ugb.cod }}</a></h1>
-            <div>
-                <p>Designação: {{ "ugb.designacoes"}}</p>
-            </div>
-        </div>
-    {% endfor %}
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Cód.</th>
+          <th>designações</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for ugb in ugb_list %}
+        <tr>
+          <td><a href="{% url 'gest_patr:ugb_detalhe' pk=ugb.pk %}">{{ ugb.cod }}</a></h1>
+          <td>Designação: {{ "ugb.designacoes"}}</td>
+          <td>
+            <a class="btn btn-primary" href="{% url 'gest_patr:ugb_alterar' pk=ugb.pk %}"><span class="oi oi-delete"></span></a>
+            <a class="btn btn-primary" href="{% url 'gest_patr:ugb_remover' pk=ugb.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 {% endblock %}

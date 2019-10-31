@@ -181,7 +181,7 @@ class FornecedorListView(ListView):
     model = Fornecedor
 
     def get_queryset(self):
-        return Fornecedor.objects.order_by('cod')
+        return Fornecedor.objects.order_by('nuit')
 
 class FornecedorDetailView(DetailView):
     model = Fornecedor
