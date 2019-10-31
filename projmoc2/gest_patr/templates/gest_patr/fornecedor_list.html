@@ -22,7 +22,7 @@
           <td>{{ fornecedor.nome }}</td>
           <td>
             <a class="btn btn-primary" href="{% url 'gest_patr:fornecedor_alterar' pk=fornecedor.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-            <a class="btn btn-primary" href="{% url 'gest_patr:fornecedor_remover' pk=fornecedor.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="btn btn-danger" href="{% url 'gest_patr:fornecedor_remover' pk=fornecedor.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
           </td>
         </tr>
         {% endfor %}

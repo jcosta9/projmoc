@@ -19,10 +19,10 @@
       {% for ugb in ugb_list %}
         <tr>
           <td><a href="{% url 'gest_patr:ugb_detalhe' pk=ugb.pk %}">{{ ugb.cod }}</a></h1>
-          <td>Designação: {{ "ugb.designacoes"}}</td>
+          <td>{{ ugb.designacoes }}</td>
           <td>
             <a class="btn btn-primary" href="{% url 'gest_patr:ugb_alterar' pk=ugb.pk %}"><span class="oi oi-delete"></span></a>
-            <a class="btn btn-primary" href="{% url 'gest_patr:ugb_remover' pk=ugb.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="btn btn-danger" href="{% url 'gest_patr:ugb_remover' pk=ugb.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
           </td>
         </tr>
         {% endfor %}

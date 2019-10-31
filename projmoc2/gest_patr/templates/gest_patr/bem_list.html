@@ -21,8 +21,8 @@
           <td><a href="{% url 'gest_patr:bem_detalhe' pk=bem.pk %}">{{ bem.nome }}</a></td>
           <td>{{ bem.dataPreenchimento|date:"D M Y"}}</td>
           <td>
-            <a class="btn btn-primary btn-xm" href="{% url 'gest_patr:bem_remover' pk=bem.pk %}">Alterar</a>
-            <a class="btn btn-primary btn-xm" href="{% url 'gest_patr:bem_alterar' pk=bem.pk %}">Remover</a>
+            <a class="btn btn-primary btn-sm" href="{% url 'gest_patr:bem_alterar' pk=bem.pk %}">Alterar</a>
+            <a class="btn btn-danger btn-sm" href="{% url 'gest_patr:bem_remover' pk=bem.pk %}">Remover</a>
           </td>
         </tr>
         {% endfor %}

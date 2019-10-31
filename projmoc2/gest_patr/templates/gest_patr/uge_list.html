@@ -22,7 +22,7 @@
           <td>{{ uge.designacoes }}</td>
           <td>
             <a class="btn btn-primary" href="{% url 'gest_patr:uge_alterar' pk=uge.pk %}"><span class="oi oi-delete"></span></a>
-            <a class="btn btn-primary" href="{% url 'gest_patr:uge_remover' pk=uge.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="btn btn-danger" href="{% url 'gest_patr:uge_remover' pk=uge.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
           </td>
         </tr>
         {% endfor %}

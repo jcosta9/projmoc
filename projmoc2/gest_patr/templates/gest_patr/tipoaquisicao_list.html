@@ -22,7 +22,7 @@
           <td>{{ tipoaquisicao.tipo }}</td>
           <td>
             <a class="btn btn-primary" href="{% url 'gest_patr:tipoaquisicao_alterar' pk=tipoaquisicao.pk %}"><span class="oi oi-delete"></span></a>
-            <a class="btn btn-primary" href="{% url 'gest_patr:tipoaquisicao_remover' pk=tipoaquisicao.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="btn btn-danger" href="{% url 'gest_patr:tipoaquisicao_remover' pk=tipoaquisicao.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
           </td>
         </tr>
       {% endfor %}
