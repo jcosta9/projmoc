@@ -1,11 +1,20 @@
 {% extends 'gest_patr/base.html' %}
 
 {% block content %}
-    <h1>Novo Tipo de Aquisição</h1>
+    <h1>
+      {% if not form.instance.pk %}
+      Novo Tipo de Aquisição
+      {% else %}
+      Atualizar Informações
+      {% endif %}
+      <button type="button" class="btn btn-success topright" onclick="location.href = '{% url 'gest_patr:tipoaquisicao_lista' %}';">Voltar</button>
+    </h1>
     <br><br>
     <form method="POST" class="post-form">
     {% csrf_token %}
-    {{form.as_p}}
+    <table class="table table-borderless table-hover table-sm">
+      {{form.as_table}}
+    </table>
     <button type="submit" class="save btn btn-success">Salvar</button>
     </form>
 

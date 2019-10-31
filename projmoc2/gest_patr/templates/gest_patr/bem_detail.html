@@ -4,7 +4,7 @@
 
 
         <h1 class='posttitle loader'>{{ bem.nome }}</h1>
-        
+
         {% if bem.dataPreenchimento %}
             <div class="date postdate">
                 {{ bem.dataPreenchimento }}
@@ -22,6 +22,23 @@
   <hr>
 
   <div class="container">
+    <div class="centerstage">
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Número da Ordem</td>
+              <td>{{ bem.numOrdem }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     <p><strong>Número da Ordem:<strong> {{ bem.numOrdem }}</p>
     <p><strong>Nome do Bem:<strong> {{ bem.nome }}</p>
     <p><strong>UGE:<strong> {{ bem.uge }}</p>
