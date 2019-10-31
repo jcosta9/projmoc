@@ -3,7 +3,9 @@
 {% block content %}
 
 
-        <h1 class='posttitle loader'>{{ fornecedor.nome }}</h1>
+<h1 class='posttitle loader'>{{ fornecedor.nome }}
+  <a class="btn btn-success topright" href="{% url 'gest_patr:fornecedor_lista' %}">Voltar</a>
+</h1>
         <hr>
 <br><br>
   <div class="container">
@@ -32,9 +34,9 @@
       </div>
     </div>
   <br><hr><br>
-<a class="btn btn-success" href="{% url 'gest_patr:fornecedor_alterar' pk=fornecedor.pk %}">Alterar</a>
+<a class="btn btn-primary" href="{% url 'gest_patr:fornecedor_alterar' pk=fornecedor.pk %}">Alterar</a>
 <a class="btn btn-danger" href="{% url 'gest_patr:fornecedor_remover' pk=fornecedor.pk %}">Remover</a>
-<a class="btn btn-primary" href="{% url 'gest_patr:fornecedor_lista' %}">Voltar</a>
+
 </div>
 
 {% endblock %}

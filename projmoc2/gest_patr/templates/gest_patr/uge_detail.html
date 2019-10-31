@@ -3,7 +3,9 @@
 {% block content %}
 
 
-<h1 class='posttitle loader'>{{ uge.designacoes }}</h1>
+<h1 class='posttitle loader'>{{ uge.designacoes }}
+  <a class="btn btn-success topright" href="{% url 'gest_patr:uge_lista' %}">Voltar</a>
+</h1>
 <hr>
 <br><br>
 
@@ -25,9 +27,9 @@
       </div>
 </div>
   <br><hr><br>
-<a class="btn btn-success" href="{% url 'gest_patr:uge_alterar' pk=uge.pk %}">Alterar</a>
+<a class="btn btn-primary" href="{% url 'gest_patr:uge_alterar' pk=uge.pk %}">Alterar</a>
 <a class="btn btn-danger" href="{% url 'gest_patr:uge_remover' pk=uge.pk %}">Remover</a>
-<a class="btn btn-primary" href="{% url 'gest_patr:uge_lista' %}">Voltar</a>
+
 </div>
 
 {% endblock %}

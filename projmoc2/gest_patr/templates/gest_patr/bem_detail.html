@@ -3,7 +3,8 @@
 {% block content %}
 
 
-<h1 class='posttitle loader'>{{ bem.nome }}</h1>
+<h1 class='posttitle loader'>{{ bem.nome }}
+<a class="btn btn-success topright" href="{% url 'gest_patr:bens_lista' %}">Voltar</a></h1>
 <hr>
 <br><br>
   <div class="container">
@@ -136,8 +137,8 @@
       </div>
 </div>
   <br><hr><br>
-<a class="btn btn-success" href="{% url 'gest_patr:bem_alterar' pk=bem.pk %}">Alterar</a>
+<a class="btn btn-primary" href="{% url 'gest_patr:bem_alterar' pk=bem.pk %}">Alterar</a>
 <a class="btn btn-danger" href="{% url 'gest_patr:bem_remover' pk=bem.pk %}">Remover</a>
-<a class="btn btn-primary" href="{% url 'gest_patr:bens_lista' %}">Voltar</a>
+
 </div>
 {% endblock %}

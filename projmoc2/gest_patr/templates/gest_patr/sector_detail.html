@@ -3,7 +3,9 @@
 {% block content %}
 
 
-<h1 class='posttitle loader'>{{ sector.nome }}</h1>
+<h1 class='posttitle loader'>{{ sector.nome }}
+  <a class="btn btn-success topright" href="{% url 'gest_patr:sector_lista' %}">Voltar</a>
+</h1>
 <hr>
 <br><br>
 
@@ -52,8 +54,8 @@
         </div>
   </div>
     <br><hr><br>
-  <a class="btn btn-success" href="{% url 'gest_patr:sector_alterar' pk=sector.pk %}">Alterar</a>
+  <a class="btn btn-primary" href="{% url 'gest_patr:sector_alterar' pk=sector.pk %}">Alterar</a>
   <a class="btn btn-danger" href="{% url 'gest_patr:sector_remover' pk=sector.pk %}">Remover</a>
-  <a class="btn btn-primary" href="{% url 'gest_patr:sector_lista' %}">Voltar</a>
+
 </div>
 {% endblock %}
