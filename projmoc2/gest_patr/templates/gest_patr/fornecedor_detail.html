@@ -3,17 +3,38 @@
 {% block content %}
 
 
-        <h1 class='posttitle loader'>{{ fornecedor.designacoes }}</h1>
-          <a class="btn btn-primary" href="{% url 'gest_patr:fornecedor_alterar' pk=fornecedor.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-          <a class="btn btn-primary" href="{% url 'gest_patr:fornecedor_remover' pk=fornecedor.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-          <a class="btn btn-primary" href="{% url 'gest_patr:fornecedor_lista' %}">Voltar</a>
-  <hr>
-
+        <h1 class='posttitle loader'>{{ fornecedor.nome }}</h1>
+        <hr>
+<br><br>
   <div class="container">
-      <p><strong>Nome:<strong> {{ fornecedor.nome }}</p>
-      <p><strong>NUIT:<strong> {{ fornecedor.nuit }}</p>
-      <p><strong>Endereco:<strong> {{ fornecedor.enderecoFornecedor }}</p>
-      <p><strong>Cidade:<strong> {{ fornecedor.cidade }}</p>
+    <div class="centerstage">
+      <div class="table-responsive">
+        <table class="table table-hover table-borderless table-sm">
+          <tbody>
+            <tr>
+              <td><h6>Nome</h6></td>
+              <td>{{ fornecedor.nome }}</td>
+            </tr>
+            <tr>
+              <td><h6>NUIT</h6></td>
+              <td>{{ fornecedor.nuit }}</td>
+            </tr>
+            <tr>
+              <td><h6>Endereco</h6></td>
+              <td>{{ fornecedor.enderecoFornecedor }}</td>
+            </tr>
+            <tr>
+              <td><h6>Cidade</h6></td>
+              <td>{{ fornecedor.cidade }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <br><hr><br>
+<a class="btn btn-success" href="{% url 'gest_patr:fornecedor_alterar' pk=fornecedor.pk %}">Alterar</a>
+<a class="btn btn-danger" href="{% url 'gest_patr:fornecedor_remover' pk=fornecedor.pk %}">Remover</a>
+<a class="btn btn-primary" href="{% url 'gest_patr:fornecedor_lista' %}">Voltar</a>
 </div>
 
 {% endblock %}

@@ -3,15 +3,30 @@
 {% block content %}
 
 
-        <h1 class='posttitle loader'>{{ tipoaquisicao.tipo }}</h1>
-          <a class="btn btn-primary" href="{% url 'gest_patr:tipoaquisicao_alterar' pk=tipoaquisicao.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-          <a class="btn btn-primary" href="{% url 'gest_patr:tipoaquisicao_remover' pk=tipoaquisicao.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-          <a class="btn btn-primary" href="{% url 'gest_patr:tipoaquisicao_lista' %}">Voltar</a>
-  <hr>
+<h1 class='posttitle loader'>{{ tipoaquisicao.tipo }}</h1>
+<hr>
+<br><br>
 
   <div class="container">
-      <p><strong>Código:<strong> {{ tipoaquisicao.cod }}</p>
-      <p><strong>Tipo de Aquisição:<strong> {{ tipoaquisicao.tipo }}</p>
+    <div class="centerstage">
+      <div class="table-responsive">
+        <table class="table table-hover table-borderless table-sm">
+          <tbody>
+            <tr>
+              <td><h6>Código</h6></td>
+              <td>{{ tipoaquisicao.cod }}</td>
+            </tr>
+            <tr>
+              <td><h6>Tipo de Aquisição</h6></td>
+              <td>{{ tipoaquisicao.tipo }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 </div>
-
+  <br><hr><br>
+<a class="btn btn-success" href="{% url 'gest_patr:tipoaquisicao_alterar' pk=tipoaquisicao.pk %}">Alterar</a>
+<a class="btn btn-danger" href="{% url 'gest_patr:tipoaquisicao_remover' pk=tipoaquisicao.pk %}">Remover</a>
+<a class="btn btn-primary" href="{% url 'gest_patr:tipoaquisicao_lista' %}">Voltar</a>
+</div>
 {% endblock %}

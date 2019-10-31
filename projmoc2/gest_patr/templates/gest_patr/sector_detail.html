@@ -3,22 +3,57 @@
 {% block content %}
 
 
-        <h1 class='posttitle loader'>{{ sector.nome }}</h1>
-          <a class="btn btn-primary" href="{% url 'gest_patr:sector_alterar' pk=sector.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-          <a class="btn btn-primary" href="{% url 'gest_patr:sector_remover' pk=sector.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-          <a class="btn btn-primary" href="{% url 'gest_patr:sector_lista' %}">Voltar</a>
-  <hr>
+<h1 class='posttitle loader'>{{ sector.nome }}</h1>
+<hr>
+<br><br>
 
   <div class="container">
-      <p><strong>Código:<strong> {{ sector.cod }}</p>
-      <p><strong>UGB:<strong> {{ sector.ugb }}</p>
-      <p><strong>Província:<strong> {{ sector.provincia }}</p>
-      <p><strong>Distrito:<strong> {{ sector.distrito }}</p>
-      <p><strong>Posto Administrativo/Administração da DCU/Municipal:<strong> {{ sector.postAdmin }}</p>
-      <p><strong>Localidade:<strong> {{ sector.localidade }}</p>
-      <p><strong>classificador Territorial:<strong> {{ sector.classificadorTerr }}</p>
-      <p><strong>Bairro:<strong> {{ sector.bairro }}</p>
-      <p><strong>Endereço:<strong> {{ sector.endereco }}</p>
+    <div class="centerstage">
+      <div class="table-responsive">
+        <table class="table table-hover table-borderless table-sm">
+          <tbody>
+            <tr>
+              <td><h6>Código</h6></td>
+              <td>{{ sector.cod }}</td>
+            </tr>
+            <tr>
+              <td><h6>UGB</h6></td>
+              <td>{{ sector.ugb }}</td>
+            </tr>
+            <tr>
+              <td><h6>Província</h6></td>
+              <td>{{ sector.provincia }}</td>
+            </tr>
+            <tr>
+              <td><h6>Distrito</h6></td>
+              <td>{{ sector.distrito }}</td>
+            </tr>
+            <tr>
+              <td><h6>Posto Administrativo/Administração da DCU/Municipal</h6></td>
+              <td>{{ sector.postAdmin }}</td>
+            </tr>
+            <tr>
+              <td><h6>Localidade</h6></td>
+              <td>{{ sector.localidade }}</td>
+            </tr>
+            <tr>
+              <td><h6>classificador Territorial</h6></td>
+              <td>{{ sector.classificadorTerr }}</td>
+            </tr>
+            <tr>
+              <td><h6>Bairro</h6></td>
+              <td>{{ sector.bairro }}</td>
+            </tr>
+            <tr>
+              <td><h6>Endereço</h6></td>
+              <td>{{ sector.endereco }}</td>
+            </tr></tbody>
+          </table>
+        </div>
+  </div>
+    <br><hr><br>
+  <a class="btn btn-success" href="{% url 'gest_patr:sector_alterar' pk=sector.pk %}">Alterar</a>
+  <a class="btn btn-danger" href="{% url 'gest_patr:sector_remover' pk=sector.pk %}">Remover</a>
+  <a class="btn btn-primary" href="{% url 'gest_patr:sector_lista' %}">Voltar</a>
 </div>
-
 {% endblock %}

@@ -3,15 +3,30 @@
 {% block content %}
 
 
-        <h1 class='posttitle loader'>{{ ugb.designacoes }}</h1>
-          <a class="btn btn-primary" href="{% url 'gest_patr:ugb_alterar' pk=ugb.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-          <a class="btn btn-primary" href="{% url 'gest_patr:ugb_remover' pk=ugb.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-          <a class="btn btn-primary" href="{% url 'gest_patr:ugb_lista' %}">Voltar</a>
-  <hr>
+<h1 class='posttitle loader'>{{ ugb.designacoes }}</h1>
+<hr>
+<br><br>
 
   <div class="container">
-      <p><strong>Código:<strong> {{ ugb.cod }}</p>
-      <p><strong>Designações:<strong> {{ ugb.designacoes }}</p>
+    <div class="centerstage">
+      <div class="table-responsive">
+        <table class="table table-hover table-borderless table-sm">
+          <tbody>
+            <tr>
+              <td><h6>Código</h6></td>
+              <td>{{ ugb.cod }}</td>
+            </tr>
+            <tr>
+              <td><h6>Designações</h6></td>
+              <td>{{ ugb.designacoes }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 </div>
-
+  <br><hr><br>
+<a class="btn btn-success" href="{% url 'gest_patr:ugb_alterar' pk=ugb.pk %}">Alterar</a>
+<a class="btn btn-danger" href="{% url 'gest_patr:ugb_remover' pk=ugb.pk %}">Remover</a>
+<a class="btn btn-primary" href="{% url 'gest_patr:ugb_lista' %}">Voltar</a>
+</div>
 {% endblock %}

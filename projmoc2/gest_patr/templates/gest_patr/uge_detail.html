@@ -3,15 +3,31 @@
 {% block content %}
 
 
-        <h1 class='posttitle loader'>{{ Uge.designacoes }}</h1>
-          <a class="btn btn-primary" href="{% url 'gest_patr:uge_alterar' pk=uge.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-          <a class="btn btn-primary" href="{% url 'gest_patr:uge_remover' pk=uge.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-          <a class="btn btn-primary" href="{% url 'gest_patr:uge_lista' %}">Voltar</a>
-  <hr>
+<h1 class='posttitle loader'>{{ uge.designacoes }}</h1>
+<hr>
+<br><br>
 
   <div class="container">
-      <p><strong>Código:<strong> {{ uge.cod }}</p>
-      <p><strong>Designações:<strong> {{ uge.designacoes }}</p>
+    <div class="centerstage">
+      <div class="table-responsive">
+        <table class="table table-hover table-borderless table-sm">
+          <tbody>
+            <tr>
+              <td><h6>Código</h6></td>
+              <td>{{ uge.cod }}</td>
+            </tr>
+            <tr>
+              <td><h6>Designações</h6></td>
+              <td>{{ uge.designacoes }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>
+  <br><hr><br>
+<a class="btn btn-success" href="{% url 'gest_patr:uge_alterar' pk=uge.pk %}">Alterar</a>
+<a class="btn btn-danger" href="{% url 'gest_patr:uge_remover' pk=uge.pk %}">Remover</a>
+<a class="btn btn-primary" href="{% url 'gest_patr:uge_lista' %}">Voltar</a>
 </div>
 
 {% endblock %}

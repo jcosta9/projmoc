@@ -3,71 +3,141 @@
 {% block content %}
 
 
-        <h1 class='posttitle loader'>{{ bem.nome }}</h1>
-
-        {% if bem.dataPreenchimento %}
-            <div class="date postdate">
-                {{ bem.dataPreenchimento }}
-            </div>
-        {% endif %}
-
-
-
-
-          <a class="btn btn-primary" href="{% url 'gest_patr:bem_alterar' pk=bem.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-          <a class="btn btn-primary" href="{% url 'gest_patr:bem_remover' pk=bem.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-          <a class="btn btn-primary" href="{% url 'gest_patr:bens_lista' %}">Voltar</a>
-
-
-  <hr>
-
+<h1 class='posttitle loader'>{{ bem.nome }}</h1>
+<hr>
+<br><br>
   <div class="container">
     <div class="centerstage">
       <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
+        <table class="table table-hover table-borderless table-sm">
           <tbody>
             <tr>
-              <td>Número da Ordem</td>
+              <td><h6>Número da Ordem</h6></td>
               <td>{{ bem.numOrdem }}</td>
+            </tr>
+            <tr>
+              <td><h6>Nome do Bem</h6></td>
+              <td>{{ bem.nome }}</td>
+            </tr>
+            <tr>
+              <td><h6>UGE</h6></td>
+              <td>{{ bem.uge }}</td>
+            </tr>
+            <tr>
+              <td><h6>UGB</h6></td>
+              <td>{{ bem.ugb }}</td>
+            </tr>
+            <tr>
+              <td><h6>UGE</td>
+              <td>{{ bem.uge }}</td>
+            </tr>
+            <tr>
+              <td><h6>Sector</h6></td>
+              <td>{{ bem.sector }}</td>
+            </tr>
+            <tr>
+              <td><h6>Código de Classificação Geral</h6></td>
+              <td>{{ bem.codClassificacaoGeral }}</td>
+            </tr>
+            <tr>
+              <td><h6>Designação</h6></td>
+              <td>{{ bem.designacao }}</td>
+            </tr>
+            <tr>
+              <td><h6>Marca</h6></td>
+              <td>{{ bem.marca }}</td>
+            </tr>
+            <tr>
+              <td><h6>Número de Série</h6></td>
+              <td>{{ bem.numeroSerie }}</td>
+            </tr>
+            <tr>
+              <td><h6>NIP</h6></td>
+              <td>{{ bem.NIP }}</td>
+            </tr>
+            <tr>
+              <td><h6>Número de Série</h6></td>
+              <td>{{ bem.numeroSerie }}</td>
+            </tr>
+            <tr>
+              <td><h6>Comprimento</h6></td>
+              <td>{{ bem.comprimento }}</td>
+            </tr>
+            <tr>
+              <td><h6>Largura</h6></td>
+              <td>{{ bem.largura }}</td>
+            </tr>
+            <tr>
+              <td><h6>Altura</h6></td>
+              <td>{{ bem.altura }}</td>
+            </tr>
+            <tr>
+              <td><h6>Cor</h6></td>
+              <td>{{ bem.cor }}</td>
+            </tr>
+            <tr>
+              <td><h6>Material Predominante</h6></td>
+              <td>{{ bem.materialPredominante }}</td>
+            </tr>
+            <tr>
+              <td><h6>Estado do Bem</h6></td>
+              <td>{{ bem.estadoBem }}</td>
+            </tr>
+            <tr>
+              <td><h6>Tipo de Aquisição</h6></td>
+              <td>{{ bem.tipoAquisicao }}</td>
+            </tr>
+            <tr>
+              <td><h6>Data de Aquisição</h6></td>
+              <td>{{ bem.dataAquisicao }}</td>
+            </tr>
+            <tr>
+              <td><h6>Valor</h6></td>
+              <td>{{ bem.valor }}</td>
+            </tr>
+            <tr>
+              <td><h6>Fornecedor</h6></td>
+              <td>{{ bem.fornecedor }}</td>
+            </tr>
+            <tr>
+              <td><h6>Tipo de Comprovativo</h6></td>
+              <td>{{ bem.tipoComprovativo }}</td>
+            </tr>
+            <tr>
+              <td><h6>Número do Comprovativo</h6></td>
+              <td>{{ bem.nroComprovativo }}</td>
+            </tr>
+            <tr>
+              <td><h6>Assistência Técnica</h6></td>
+              <td>{{ bem.assistenciaTecnica }}</td>
+            </tr>
+            <tr>
+              <td><h6>Garantia</h6></td>
+              <td>{{ bem.garantia }}</td>
+            </tr>
+            <tr>
+              <td><h6>Utilizador</h6></td>
+              <td>{{ bem.utilizador }}</td>
+            </tr>
+            <tr>
+              <td><h6>Observações</h6></td>
+              <td>{{ bem.observacoes }}</td>
+            </tr>
+            <tr>
+              <td><h6>Preenchido Por</h6></td>
+              <td>{{ bem.preenchidoPor }}</td>
+            </tr>
+            <tr>
+              <td><h6>Responsável</h6></td>
+              <td>{{ bem.responsavel }}</td>
             </tr>
           </tbody>
         </table>
       </div>
-    <p><strong>Número da Ordem:<strong> {{ bem.numOrdem }}</p>
-    <p><strong>Nome do Bem:<strong> {{ bem.nome }}</p>
-    <p><strong>UGE:<strong> {{ bem.uge }}</p>
-    <p><strong>UGB:<strong> {{ bem.ugb }}</p>
-    <p><strong>Sector:<strong> {{ bem.sector }}</p>
-    <p><strong>Código de Classificação Geral:<strong> {{ bem.codClassificacaoGeral }}</p>
-    <p><strong>Designação:<strong> {{ bem.designacao }}</p>
-    <p><strong>Marca:<strong> {{ bem.marca }}</p>
-    <p><strong>Número de Série:<strong> {{ bem.numeroSerie }}</p>
-    <p><strong>NIP:<strong> {{ bem.NIP }}</p>
-    <p><strong>Comprimento:<strong> {{ bem.comprimento }}</p>
-    <p><strong>Largura:<strong> {{ bem.largura }}</p>
-    <p><strong>Altura:<strong> {{ bem.altura }}</p>
-    <p><strong>Cor:<strong> {{ bem.cor }}</p>
-    <p><strong>Material Predominante:<strong> {{ bem.materialPredominante }}</p>
-    <p><strong>Estado do Bem:<strong> {{ bem.estadoBem }}</p>
-    <p><strong>Tipo de Aquisição:<strong> {{ bem.tipoAquisicao }}</p>
-    <p><strong>Data de Aquisição:<strong> {{ bem.dataAquisicao }}</p>
-    <p><strong>Valor:<strong> {{ bem.valor }}</p>
-    <p><strong>Fornecedor:<strong> {{ bem.fornecedor }}</p>
-    <p><strong>Tipo de Comprovativo:<strong> {{ bem.tipoComprovativo }}</p>
-    <p><strong>Número do Comprovativo:<strong> {{ bem.nroComprovativo }}</p>
-    <p><strong>Assistência Técnica:<strong> {{ bem.assistenciaTecnica }}</p>
-    <p><strong>Garantia:<strong> {{ bem.garantia }}</p>
-    <p><strong>Utilizador:<strong> {{ bem.utilizador }}</p>
-    <p><strong>Observações:<strong> {{ bem.observacoes }}</p>
-    <p><strong>Preenchido Por:<strong> {{ bem.preenchidoPor }}</p>
-    <p><strong>Responsável:<strong> {{ bem.responsavel }}</p>
-
 </div>
-
+  <br><hr><br>
+<a class="btn btn-success" href="{% url 'gest_patr:bem_alterar' pk=bem.pk %}">Alterar</a>
+<a class="btn btn-danger" href="{% url 'gest_patr:bem_remover' pk=bem.pk %}">Remover</a>
+<a class="btn btn-primary" href="{% url 'gest_patr:bens_lista' %}">Voltar</a>
+</div>
 {% endblock %}
