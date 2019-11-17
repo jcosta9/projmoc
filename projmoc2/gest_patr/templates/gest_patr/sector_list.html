@@ -22,8 +22,8 @@
           <td><a href="{% url 'gest_patr:sector_detalhe' pk=sector.pk %}">{{ sector.cod }}</td>
           <td>{{ sector.nome}}</td>
           <td>
-            <a class="btn btn-primary" href="{% url 'gest_patr:sector_alterar' pk=sector.pk %}"><span class="oi oi-delete"></span></a>
-            <a class="btn btn-danger" href="{% url 'gest_patr:sector_remover' pk=sector.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="btn btn-primary btn-sm" href="{% url 'gest_patr:sector_alterar' pk=sector.pk %}">Alterar</span></a>
+            <a class="btn btn-danger btn-sm" href="{% url 'gest_patr:sector_remover' pk=sector.pk %}">Remover</span></a>
           </td>
         </tr>
       {% endfor %}

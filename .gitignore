@@ -1,3 +1,9 @@
 *.pyc
-projmocambique\patrimonio\__pycache__\*
-projmocambique\db.sqlite3
+projmocambique/patrimonio/__pycache__/*
+*projmocambique/db.sqlite3*
+*projmoc/mocam_website/db.sqlite3
+*projmoc/db.sqlite3
+*projmoc2/db.sqlite3
+*projmoc2/gest_patr/migrations/*
+*Ideias-layout/*
+*projmoc/mocam_website/gestao_patrimonio/*

@@ -4,6 +4,7 @@
 <h1>Tipos de Aquisição
 <button type="button" class="btn btn-success topright" onclick="location.href = '{% url 'gest_patr:tipoaquisicao_novo' %}';">Novo</button>
 </h1>
+<hr>
 <br><br>
 <div class="centerstage">
   <div class="table-responsive">
@@ -21,8 +22,8 @@
           <td><a href="{% url 'gest_patr:tipoaquisicao_detalhe' pk=tipoaquisicao.pk %}">{{ tipoaquisicao.cod }}</td>
           <td>{{ tipoaquisicao.tipo }}</td>
           <td>
-            <a class="btn btn-primary" href="{% url 'gest_patr:tipoaquisicao_alterar' pk=tipoaquisicao.pk %}"><span class="oi oi-delete"></span></a>
-            <a class="btn btn-danger" href="{% url 'gest_patr:tipoaquisicao_remover' pk=tipoaquisicao.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="btn btn-primary btn-sm" href="{% url 'gest_patr:tipoaquisicao_alterar' pk=tipoaquisicao.pk %}">Alterar</span></a>
+            <a class="btn btn-danger btn-sm" href="{% url 'gest_patr:tipoaquisicao_remover' pk=tipoaquisicao.pk %}">Remover</span></a>
           </td>
         </tr>
       {% endfor %}

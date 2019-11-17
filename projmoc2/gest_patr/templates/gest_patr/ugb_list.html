@@ -4,6 +4,7 @@
 <h1>Lista de UGBs
 <button type="button" class="btn btn-success topright" onclick="location.href = '{% url 'gest_patr:ugb_novo' %}';">Nova</button>
 </h1>
+<hr>
 <br><br>
 <div class="centerstage">
   <div class="table-responsive">
@@ -21,8 +22,8 @@
           <td><a href="{% url 'gest_patr:ugb_detalhe' pk=ugb.pk %}">{{ ugb.cod }}</a></h1>
           <td>{{ ugb.designacoes }}</td>
           <td>
-            <a class="btn btn-primary" href="{% url 'gest_patr:ugb_alterar' pk=ugb.pk %}"><span class="oi oi-delete"></span></a>
-            <a class="btn btn-danger" href="{% url 'gest_patr:ugb_remover' pk=ugb.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="btn btn-primary btn-sm" href="{% url 'gest_patr:ugb_alterar' pk=ugb.pk %}">Alterar</span></a>
+            <a class="btn btn-danger btn-sm" href="{% url 'gest_patr:ugb_remover' pk=ugb.pk %}">Remover</span></a>
           </td>
         </tr>
         {% endfor %}
