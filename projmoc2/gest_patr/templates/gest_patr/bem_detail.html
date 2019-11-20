@@ -1,5 +1,5 @@
- {% extends 'gest_patr/base.html' %}
-
+{% extends 'gest_patr/base.html' %}
+{% load static %}
 {% block content %}
 
 
@@ -134,6 +134,7 @@
             </tr>
           </tbody>
         </table>
+        <img src="{{ bem.qrcode.url }}" alt="QR code" />
       </div>
 </div>
   <br><hr><br>

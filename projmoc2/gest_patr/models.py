@@ -1,6 +1,11 @@
+import qrcode
+from io import StringIO
+from django.core.files import File
+
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 # definicoes
 ESTADO_NOVO = 1
@@ -19,6 +24,9 @@ ESTADOS_BEM = (
 
 SIM = 1
 NAO = 2
+
+QRCODE_LOC = 'media/qrcodes/'
+
 
 class Uge(models.Model):
     # TODO: atrelar a designacoes
@@ -83,6 +91,7 @@ class Fornecedor(models.Model):
         return self.nome
 
 class Bem(models.Model):
+
     # seção 1 - entidade/localizacao institucional e geografica
     numOrdem = models.DecimalField(max_digits=8, decimal_places=0, null=True) #, primary_key=True)
     nome = models.CharField(max_length=200)
@@ -130,10 +139,41 @@ class Bem(models.Model):
     # preenchidoPor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     preenchidoPor = models.CharField(max_length=256,null=True)
     responsavel = models.CharField(max_length=256,null=True)
+    qrcode = models.ImageField(upload_to='qrcodes/', blank=True, null=True)
 
+    # def qrcode_loc(self):
+    #     return '%s/bem-%s.png' % (QRCODE_LOC, self.id)
 
     def get_absolute_url(self):
         return reverse("gest_patr:bem_detalhe",kwargs={'pk':self.pk})
 
     def __str__(self):
         return self.nome
+
+    def save(self):
+        super(Bem, self).save()
+        self.generate_qrcode()
+        self.qrcode = 'qrcodes/bem-%s.png' % (self.id)
+        super(Bem, self).save()
+
+    def generate_qrcode(self):
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            box_size=6,
+            border=0,
+        )
+        qr.add_data(self.get_absolute_url())
+        qr.make(fit=True)
+
+
+        img = qr.make_image()
+        img.save(QRCODE_LOC+'bem-%s.png' % (self.id))
+
+        # buffer = StringIO()
+        # img.save(buffer)
+        # filename = 'bem-%s.png' % (self.id)
+        # filebuffer = InMemoryUploadedFile(
+        #     buffer, None, filename, 'image/png', buffer.len, None)
+        # self.qrcode.save(QRCODE_LOC,
+        #                 File(open(QRCODE_LOC+'bem-%s.png' % (self.id), 'rb')))

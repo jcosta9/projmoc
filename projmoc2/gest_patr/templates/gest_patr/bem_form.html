@@ -14,6 +14,7 @@
     <form method="POST" class="post-form">
     {% csrf_token %}
     <table class="table table-borderless table-hover table-sm">
+      <!-- quebrar formulário -->
       {{form.as_table}}
     </table>
     <button type="submit" class="save btn btn-success">Salvar</button>
