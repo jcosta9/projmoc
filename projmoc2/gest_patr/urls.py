@@ -30,12 +30,6 @@ urlpatterns = [
     url(r'^sector/(?P<pk>\d+)/editar/$', views.SectorUpdateView.as_view(), name='sector_alterar'),
     url(r'^sector/(?P<pk>\d+)/remover/$', views.SectorDeleteView.as_view(), name='sector_remover'),
 
-    url(r'^tipoaquisicao/lista/$',views.TipoAquisicaoListView.as_view(),name='tipoaquisicao_lista'),
-    url(r'^tipoaquisicao/(?P<pk>\d+)$', views.TipoAquisicaoDetailView.as_view(), name='tipoaquisicao_detalhe'),
-    url(r'^tipoaquisicao/new/$', views.CreateTipoAquisicaoView.as_view(), name='tipoaquisicao_novo'),
-    url(r'^tipoaquisicao/(?P<pk>\d+)/editar/$', views.TipoAquisicaoUpdateView.as_view(), name='tipoaquisicao_alterar'),
-    url(r'^tipoaquisicao/(?P<pk>\d+)/remover/$', views.TipoAquisicaoDeleteView.as_view(), name='tipoaquisicao_remover'),
-
     url(r'^fornecedor/lista/$',views.FornecedorListView.as_view(),name='fornecedor_lista'),
     url(r'^fornecedor/(?P<pk>\d+)$', views.FornecedorDetailView.as_view(), name='fornecedor_detalhe'),
     url(r'^fornecedor/new/$', views.CreateFornecedorView.as_view(), name='fornecedor_novo'),

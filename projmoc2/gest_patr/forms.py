@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Bem, Uge, Ugb, Sector, TipoAquisicao, Fornecedor
+from .models import Bem, Uge, Ugb, Sector, Fornecedor
 
 class UgeForm(forms.ModelForm):
 
@@ -29,12 +29,6 @@ class SectorForm(forms.ModelForm):
                     'classificadorTerr',
                     'bairro',
                     'endereco')
-
-class TipoAquisicaoForm(forms.ModelForm):
-
-    class Meta:
-        model = TipoAquisicao
-        fields = ('cod','tipo')
 
 class FornecedorForm(forms.ModelForm):
 
@@ -73,7 +67,7 @@ class BemForm(forms.ModelForm):
                 'utilizador',
                 'observacoes',
                 'preenchidoPor',
-                'responsavel') 
+                'responsavel')
 
 # Caso queira mudar o CSS da classe de algum campo específico do formulário.
         # widgets = {

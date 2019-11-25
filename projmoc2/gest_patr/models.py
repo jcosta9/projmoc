@@ -53,6 +53,7 @@ class Ugb(models.Model):
 class Sector(models.Model):
     cod = models.DecimalField(max_digits=8, decimal_places=0, primary_key=True)
     nome = models.CharField(max_length=256)
+    uge = models.ForeignKey('Uge',on_delete=models.CASCADE,default='21010000')
     ugb = models.ForeignKey('Ugb',on_delete=models.CASCADE,default='21030000')
     provincia = models.CharField(max_length=256)
     distrito = models.CharField(max_length=256)
@@ -67,16 +68,6 @@ class Sector(models.Model):
 
     def __str__(self):
         return self.nome
-
-class TipoAquisicao(models.Model):
-    cod = models.DecimalField(max_digits=10, decimal_places=0, primary_key=True)
-    tipo = models.CharField(max_length=256)
-
-    def get_absolute_url(self):
-        return reverse("gest_patr:tipoaquisicao_detalhe",kwargs={'pk':self.pk})
-
-    def __str__(self):
-        return self.tipo
 
 class Fornecedor(models.Model):
     nome = models.CharField(max_length=256)
@@ -118,7 +109,14 @@ class Bem(models.Model):
         choices=ESTADOS_BEM,
         default=ESTADO_BOM
     )
-    tipoAquisicao = models.ForeignKey('TipoAquisicao', on_delete=models.CASCADE, default='001')
+    tipoAquisicao = models.PositiveSmallIntegerField(
+        choices=(
+            (0, ('Compra')),
+            (1, ('Transferência')),
+            (2, ('Doação'))
+        ),
+        default=0
+    )
     dataAquisicao = models.DateField(null=True)
     valor = models.IntegerField(null=True)
 
