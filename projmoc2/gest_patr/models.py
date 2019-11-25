@@ -141,9 +141,6 @@ class Bem(models.Model):
     responsavel = models.CharField(max_length=256,null=True)
     qrcode = models.ImageField(upload_to='qrcodes/', blank=True, null=True)
 
-    # def qrcode_loc(self):
-    #     return '%s/bem-%s.png' % (QRCODE_LOC, self.id)
-
     def get_absolute_url(self):
         return reverse("gest_patr:bem_detalhe",kwargs={'pk':self.pk})
 
@@ -165,15 +162,5 @@ class Bem(models.Model):
         )
         qr.add_data(self.get_absolute_url())
         qr.make(fit=True)
-
-
         img = qr.make_image()
         img.save(QRCODE_LOC+'bem-%s.png' % (self.id))
-
-        # buffer = StringIO()
-        # img.save(buffer)
-        # filename = 'bem-%s.png' % (self.id)
-        # filebuffer = InMemoryUploadedFile(
-        #     buffer, None, filename, 'image/png', buffer.len, None)
-        # self.qrcode.save(QRCODE_LOC,
-        #                 File(open(QRCODE_LOC+'bem-%s.png' % (self.id), 'rb')))
