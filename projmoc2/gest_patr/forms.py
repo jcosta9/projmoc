@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Bem, Uge, Ugb, Sector, Fornecedor
+from .models import Bem, Uge, Ugb, Sector, SubSector, Fornecedor
 
 class UgeForm(forms.ModelForm):
 
@@ -13,6 +13,12 @@ class UgbForm(forms.ModelForm):
     class Meta:
         model = Ugb
         fields = ('cod','designacoes')
+
+class SubSectorForm(forms.ModelForm):
+
+    class Meta:
+        model = SubSector
+        fields = ('cod','nome','sector')
 
 class SectorForm(forms.ModelForm):
 

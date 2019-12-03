@@ -30,6 +30,12 @@ urlpatterns = [
     url(r'^sector/(?P<pk>\d+)/editar/$', views.SectorUpdateView.as_view(), name='sector_alterar'),
     url(r'^sector/(?P<pk>\d+)/remover/$', views.SectorDeleteView.as_view(), name='sector_remover'),
 
+    url(r'^subsector/lista/$',views.SubSectorListView.as_view(),name='subsector_lista'),
+    url(r'^subsector/(?P<pk>\d+)$', views.SubSectorDetailView.as_view(), name='subsector_detalhe'),
+    url(r'^subsector/new/$', views.CreateSubSectorView.as_view(), name='subsector_novo'),
+    url(r'^subsector/(?P<pk>\d+)/editar/$', views.SubSectorUpdateView.as_view(), name='subsector_alterar'),
+    url(r'^subsector/(?P<pk>\d+)/remover/$', views.SubSectorDeleteView.as_view(), name='subsector_remover'),
+
     url(r'^fornecedor/lista/$',views.FornecedorListView.as_view(),name='fornecedor_lista'),
     url(r'^fornecedor/(?P<pk>\d+)$', views.FornecedorDetailView.as_view(), name='fornecedor_detalhe'),
     url(r'^fornecedor/new/$', views.CreateFornecedorView.as_view(), name='fornecedor_novo'),

@@ -1,0 +1,22 @@
+{% extends 'gest_patr/base.html' %}
+
+{% block content %}
+    <h1>
+      {% if not form.instance.pk %}
+      Novo Subsector
+      {% else %}
+      Atualizar Informações
+      {% endif %}
+      <button type="button" class="btn btn-success topright" onclick="location.href = '{% url 'gest_patr:subsector_lista' %}';">Voltar</button>
+    </h1>
+    <hr>
+    <br><br>
+    <form method="POST" class="post-form">
+    {% csrf_token %}
+    <table class="table table-borderless table-hover table-sm">
+      {{form.as_table}}
+    </table>
+    <button type="submit" class="save btn btn-success">Salvar</button>
+    </form>
+
+{% endblock %}

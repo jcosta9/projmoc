@@ -50,6 +50,17 @@ class Ugb(models.Model):
     def __str__(self):
         return self.designacoes
 
+class SubSector(models.Model):
+    cod = models.DecimalField(max_digits=8, decimal_places=0, primary_key=True)
+    nome = models.CharField(max_length=256)
+    sector = models.ForeignKey('Sector', on_delete=models.CASCADE, default='001')
+
+    def get_absolute_url(self):
+        return reverse("gest_patr:subsector_detalhe",kwargs={'pk':self.pk})
+
+    def __str__(self):
+        return self.nome
+
 class Sector(models.Model):
     cod = models.DecimalField(max_digits=8, decimal_places=0, primary_key=True)
     nome = models.CharField(max_length=256)

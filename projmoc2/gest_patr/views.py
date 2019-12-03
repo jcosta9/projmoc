@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 # from django.contrib.auth.decorators import login_required
-from .models import Bem, Uge, Ugb, Sector, Fornecedor
+from .models import Bem, Uge, Ugb, Sector, SubSector, Fornecedor
 from django.utils import timezone
-from .forms import BemForm, UgeForm, UgbForm, SectorForm, FornecedorForm
+from .forms import BemForm, UgeForm, UgbForm, SectorForm, SubSectorForm, FornecedorForm
 
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
@@ -140,6 +140,39 @@ class SectorUpdateView(UpdateView):
 class SectorDeleteView(DeleteView):
     model = Sector
     success_url = reverse_lazy('gest_patr:sector_lista')
+
+##########################################################
+##  SubSector
+##########################################################
+
+class SubSectorListView(ListView):
+    model = SubSector
+
+    def get_queryset(self):
+        return SubSector.objects.order_by('cod')
+
+class SubSectorDetailView(DetailView):
+    model = SubSector
+
+class CreateSubSectorView(CreateView):
+    login_url = '/login/'
+    redirect_field_name = 'subsector_detalhe.html'
+
+    form_class = SubSectorForm
+    model = SubSector
+
+class SubSectorUpdateView(UpdateView):
+    login_url = '/login/'
+    redirect_field_name = 'subsector_detalhe.html'
+
+    form_class = SubSectorForm
+
+    model = SubSector
+
+class SubSectorDeleteView(DeleteView):
+    model = SubSector
+    success_url = reverse_lazy('gest_patr:subsector_lista')
+
 
 
 ##########################################################

@@ -1,0 +1,34 @@
+{% extends 'gest_patr/base.html' %}
+
+{% block content %}
+<h1>Lista de Subsectores
+<button type="button" class="btn btn-success topright" onclick="location.href = '{% url 'gest_patr:subsector_novo' %}';">Nova</button>
+</h1>
+<hr>
+<br><br>
+<div class="centerstage">
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Cód.</th>
+          <th>Subsector</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for subsector in subsector_list %}
+        <tr>
+          <td><a href="{% url 'gest_patr:subsector_detalhe' pk=subsector.pk %}">{{ subsector.cod }}</a></h1>
+          <td>{{ subsector.nome }}</td>
+          <td>
+            <a class="btn btn-primary btn-sm" href="{% url 'gest_patr:subsector_alterar' pk=subsector.pk %}">Alterar</span></a>
+            <a class="btn btn-danger btn-sm" href="{% url 'gest_patr:subsector_remover' pk=subsector.pk %}">Remover</span></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
