@@ -52,6 +52,10 @@ class BemList(generics.ListCreateAPIView):
     queryset = Bem.objects.all()
     serializer_class = BemSerializer
 
+class BemDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Bem.objects.all()
+    serializer_class = BemSerializer
+
 ##########################################################
 ##  Uge
 ##########################################################
@@ -86,6 +90,10 @@ class UgeDeleteView(DeleteView):
 
 class UgeList(generics.ListCreateAPIView):
 
+    queryset = Uge.objects.all()
+    serializer_class = UgeSerializer
+
+class UgeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Uge.objects.all()
     serializer_class = UgeSerializer
 
@@ -126,6 +134,10 @@ class UgbList(generics.ListCreateAPIView):
     queryset = Ugb.objects.all()
     serializer_class = UgbSerializer
 
+class UgbDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Ugb.objects.all()
+    serializer_class = UgbSerializer
+
 ##########################################################
 ##  Sector
 ##########################################################
@@ -160,6 +172,10 @@ class SectorDeleteView(DeleteView):
 
 class SectorList(generics.ListCreateAPIView):
 
+    queryset = Sector.objects.all()
+    serializer_class = SectorSerializer
+
+class SectorDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Sector.objects.all()
     serializer_class = SectorSerializer
 
@@ -200,6 +216,9 @@ class SubSectorList(generics.ListCreateAPIView):
     queryset = SubSector.objects.all()
     serializer_class = SubsectorSerializer
 
+class SubSectorDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = SubSector.objects.all()
+    serializer_class = SubsectorSerializer
 
 ##########################################################
 ##  Fornecedor
@@ -235,5 +254,9 @@ class FornecedorDeleteView(DeleteView):
 
 class FornecedorList(generics.ListCreateAPIView):
 
+    queryset = Fornecedor.objects.all()
+    serializer_class = FornecedorSerializer
+
+class FornecedorDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Fornecedor.objects.all()
     serializer_class = FornecedorSerializer
