@@ -1,6 +1,11 @@
+import qrcode
+from io import StringIO
+from django.core.files import File
+
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 # definicoes
 ESTADO_NOVO = 1
@@ -19,6 +24,9 @@ ESTADOS_BEM = (
 
 SIM = 1
 NAO = 2
+
+QRCODE_LOC = 'media/qrcodes/'
+
 
 class Uge(models.Model):
     # TODO: atrelar a designacoes
@@ -42,9 +50,21 @@ class Ugb(models.Model):
     def __str__(self):
         return self.designacoes
 
+class SubSector(models.Model):
+    cod = models.DecimalField(max_digits=8, decimal_places=0, primary_key=True)
+    nome = models.CharField(max_length=256)
+    sector = models.ForeignKey('Sector', on_delete=models.CASCADE, default='001')
+
+    def get_absolute_url(self):
+        return reverse("gest_patr:subsector_detalhe",kwargs={'pk':self.pk})
+
+    def __str__(self):
+        return self.nome
+
 class Sector(models.Model):
     cod = models.DecimalField(max_digits=8, decimal_places=0, primary_key=True)
     nome = models.CharField(max_length=256)
+    uge = models.ForeignKey('Uge',on_delete=models.CASCADE,default='21010000')
     ugb = models.ForeignKey('Ugb',on_delete=models.CASCADE,default='21030000')
     provincia = models.CharField(max_length=256)
     distrito = models.CharField(max_length=256)
@@ -60,16 +80,6 @@ class Sector(models.Model):
     def __str__(self):
         return self.nome
 
-class TipoAquisicao(models.Model):
-    cod = models.DecimalField(max_digits=10, decimal_places=0, primary_key=True)
-    tipo = models.CharField(max_length=256)
-
-    def get_absolute_url(self):
-        return reverse("gest_patr:tipoaquisicao_detalhe",kwargs={'pk':self.pk})
-
-    def __str__(self):
-        return self.tipo
-
 class Fornecedor(models.Model):
     nome = models.CharField(max_length=256)
     nuit = models.DecimalField(max_digits=12, decimal_places=0)
@@ -83,6 +93,7 @@ class Fornecedor(models.Model):
         return self.nome
 
 class Bem(models.Model):
+
     # seção 1 - entidade/localizacao institucional e geografica
     numOrdem = models.DecimalField(max_digits=8, decimal_places=0, null=True) #, primary_key=True)
     nome = models.CharField(max_length=200)
@@ -109,7 +120,14 @@ class Bem(models.Model):
         choices=ESTADOS_BEM,
         default=ESTADO_BOM
     )
-    tipoAquisicao = models.ForeignKey('TipoAquisicao', on_delete=models.CASCADE, default='001')
+    tipoAquisicao = models.PositiveSmallIntegerField(
+        choices=(
+            (0, ('Compra')),
+            (1, ('Transferência')),
+            (2, ('Doação'))
+        ),
+        default=0
+    )
     dataAquisicao = models.DateField(null=True)
     valor = models.IntegerField(null=True)
 
@@ -130,10 +148,28 @@ class Bem(models.Model):
     # preenchidoPor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     preenchidoPor = models.CharField(max_length=256,null=True)
     responsavel = models.CharField(max_length=256,null=True)
-
+    qrcode = models.ImageField(upload_to='qrcodes/', blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse("gest_patr:bem_detalhe",kwargs={'pk':self.pk})
 
     def __str__(self):
         return self.nome
+
+    def save(self):
+        super(Bem, self).save()
+        self.generate_qrcode()
+        self.qrcode = 'qrcodes/bem-%s.png' % (self.id)
+        super(Bem, self).save()
+
+    def generate_qrcode(self):
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            box_size=6,
+            border=0,
+        )
+        qr.add_data(self.get_absolute_url())
+        qr.make(fit=True)
+        img = qr.make_image()
+        img.save(QRCODE_LOC+'bem-%s.png' % (self.id))

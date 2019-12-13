@@ -1,8 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from rest_framework import generics
+
+
 # from django.contrib.auth.decorators import login_required
-from .models import Bem, Uge, Ugb, Sector, TipoAquisicao, Fornecedor
+from .models import Bem, Uge, Ugb, Sector, SubSector, Fornecedor
 from django.utils import timezone
-from .forms import BemForm, UgeForm, UgbForm, SectorForm, TipoAquisicaoForm, FornecedorForm
+from .forms import BemForm, UgeForm, UgbForm, SectorForm, SubSectorForm, FornecedorForm
+from .serializers import BemSerializer, UgeSerializer, UgbSerializer, SectorSerializer, SubsectorSerializer, FornecedorSerializer
 
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
@@ -43,6 +47,14 @@ class BemDeleteView(DeleteView):
     model = Bem
     success_url = reverse_lazy('gest_patr:bens_lista')
 
+class BemList(generics.ListCreateAPIView):
+
+    queryset = Bem.objects.all()
+    serializer_class = BemSerializer
+
+class BemDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Bem.objects.all()
+    serializer_class = BemSerializer
 
 ##########################################################
 ##  Uge
@@ -76,6 +88,15 @@ class UgeDeleteView(DeleteView):
     model = Uge
     success_url = reverse_lazy('gest_patr:uge_lista')
 
+class UgeList(generics.ListCreateAPIView):
+
+    queryset = Uge.objects.all()
+    serializer_class = UgeSerializer
+
+class UgeDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Uge.objects.all()
+    serializer_class = UgeSerializer
+
 ##########################################################
 ##  Ugb
 ##########################################################
@@ -108,6 +129,14 @@ class UgbDeleteView(DeleteView):
     model = Ugb
     success_url = reverse_lazy('gest_patr:ugb_lista')
 
+class UgbList(generics.ListCreateAPIView):
+
+    queryset = Ugb.objects.all()
+    serializer_class = UgbSerializer
+
+class UgbDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Ugb.objects.all()
+    serializer_class = UgbSerializer
 
 ##########################################################
 ##  Sector
@@ -141,37 +170,55 @@ class SectorDeleteView(DeleteView):
     model = Sector
     success_url = reverse_lazy('gest_patr:sector_lista')
 
+class SectorList(generics.ListCreateAPIView):
+
+    queryset = Sector.objects.all()
+    serializer_class = SectorSerializer
+
+class SectorDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Sector.objects.all()
+    serializer_class = SectorSerializer
+
 ##########################################################
-##  Tipo de Aquisicao
+##  SubSector
 ##########################################################
 
-class TipoAquisicaoListView(ListView):
-    model = TipoAquisicao
+class SubSectorListView(ListView):
+    model = SubSector
 
     def get_queryset(self):
-        return TipoAquisicao.objects.order_by('cod')
+        return SubSector.objects.order_by('cod')
 
-class TipoAquisicaoDetailView(DetailView):
-    model = TipoAquisicao
+class SubSectorDetailView(DetailView):
+    model = SubSector
 
-class CreateTipoAquisicaoView(CreateView):
+class CreateSubSectorView(CreateView):
     login_url = '/login/'
-    redirect_field_name = 'tipoaquisicao_detalhe.html'
+    redirect_field_name = 'subsector_detalhe.html'
 
-    form_class = TipoAquisicaoForm
-    model = TipoAquisicao
+    form_class = SubSectorForm
+    model = SubSector
 
-class TipoAquisicaoUpdateView(UpdateView):
+class SubSectorUpdateView(UpdateView):
     login_url = '/login/'
-    redirect_field_name = 'tipoaquisicao_detalhe.html'
+    redirect_field_name = 'subsector_detalhe.html'
 
-    form_class = TipoAquisicaoForm
+    form_class = SubSectorForm
 
-    model = TipoAquisicao
+    model = SubSector
 
-class TipoAquisicaoDeleteView(DeleteView):
-    model = TipoAquisicao
-    success_url = reverse_lazy('gest_patr:tipoaquisicao_lista')
+class SubSectorDeleteView(DeleteView):
+    model = SubSector
+    success_url = reverse_lazy('gest_patr:subsector_lista')
+
+class SubSectorList(generics.ListCreateAPIView):
+
+    queryset = SubSector.objects.all()
+    serializer_class = SubsectorSerializer
+
+class SubSectorDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = SubSector.objects.all()
+    serializer_class = SubsectorSerializer
 
 ##########################################################
 ##  Fornecedor
@@ -204,3 +251,12 @@ class FornecedorUpdateView(UpdateView):
 class FornecedorDeleteView(DeleteView):
     model = Fornecedor
     success_url = reverse_lazy('gest_patr:fornecedor_lista')
+
+class FornecedorList(generics.ListCreateAPIView):
+
+    queryset = Fornecedor.objects.all()
+    serializer_class = FornecedorSerializer
+
+class FornecedorDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Fornecedor.objects.all()
+    serializer_class = FornecedorSerializer
